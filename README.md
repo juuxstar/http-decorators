@@ -2,7 +2,7 @@
 
 TypeScript method decorators for registering Express routes on classes.
 
-This package extracts the generic HTTP method decorator behavior from FrontLobby's `BaseAPI` into a small standalone package. It does not include FrontLobby-specific auth, validation, logging, billing, or error handling.
+This package provides lightweight HTTP method decorators for class-based Express APIs. It intentionally stays focused on route registration and does not include auth, validation, logging, billing, or error handling.
 
 ## Install
 
