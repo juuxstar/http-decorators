@@ -1,0 +1,52 @@
+{
+	"name": "@juuxstar/http-decorators",
+	"version": "0.1.0",
+	"description": "TypeScript method decorators for registering Express HTTP routes.",
+	"type": "module",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"test": "node --test --import tsx test/*.test.ts",
+		"pack:dry-run": "npm pack --dry-run"
+	},
+	"keywords": [
+		"express",
+		"decorators",
+		"typescript",
+		"routes"
+	],
+	"author": "juuxstar",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/juuxstar/http-decorators.git"
+	},
+	"bugs": {
+		"url": "https://github.com/juuxstar/http-decorators/issues"
+	},
+	"homepage": "https://github.com/juuxstar/http-decorators#readme",
+	"dependencies": {
+		"express": "^5.1.0"
+	},
+	"devDependencies": {
+		"@types/express": "^5.0.3",
+		"@types/node": "^24.0.0",
+		"tsx": "^4.20.0",
+		"typescript": "^5.8.3"
+	},
+	"peerDependencies": {
+		"express": ">=4.18.0 || >=5.0.0"
+	}
+}
