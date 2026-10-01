@@ -6,9 +6,14 @@ This package provides lightweight HTTP method decorators for class-based Express
 
 ## Install
 
+The package is not published to npm. Install it from GitHub by release tag; `express` is a peer dependency:
+
 ```sh
-npm install @juuxstar/http-decorators express
+npm install github:juuxstar/http-decorators#semver:^0.1.0 express
 ```
+
+The compiled `dist/` is committed, so installing runs no build or lifecycle scripts (it works with
+`--ignore-scripts`). TypeScript users also need `@types/express`.
 
 Enable TypeScript decorators:
 
@@ -117,3 +122,13 @@ const router = createRouter(new UploadAPI(), { public : false });
 - `RouteDefinition`
 
 Route paths must start with `/`. Subclass routes are registered before ancestor routes, matching Express's first-match behavior for more specific child routes.
+
+## Releasing
+
+`dist/` is committed and must match `src/`. Before tagging a release:
+
+```sh
+npm run check:dist   # rebuilds dist/ and fails if it differs from what is committed
+npm test
+git tag v<version> && git push origin v<version>
+```
