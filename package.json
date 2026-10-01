@@ -13,13 +13,16 @@
 	},
 	"files": [
 		"dist",
+		"src",
 		"README.md",
 		"LICENSE"
 	],
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
 		"test": "node --test --import tsx test/*.test.ts",
-		"pack:dry-run": "npm pack --dry-run"
+		"pack:dry-run": "npm pack --dry-run",
+		"check:dist": "npm run build && git diff --exit-code --stat -- dist",
+		"prepack": "npm run build && npm test"
 	},
 	"keywords": [
 		"express",
@@ -37,16 +40,20 @@
 		"url": "https://github.com/juuxstar/http-decorators/issues"
 	},
 	"homepage": "https://github.com/juuxstar/http-decorators#readme",
-	"dependencies": {
-		"express": "^5.1.0"
-	},
 	"devDependencies": {
 		"@types/express": "^5.0.3",
 		"@types/node": "^24.0.0",
+		"express": "^5.1.0",
 		"tsx": "^4.20.0",
 		"typescript": "^5.8.3"
 	},
 	"peerDependencies": {
-		"express": ">=4.18.0 || >=5.0.0"
+		"@types/express": "^4.17.0 || ^5.0.0",
+		"express": "^4.18.0 || ^5.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@types/express": {
+			"optional": true
+		}
 	}
 }
